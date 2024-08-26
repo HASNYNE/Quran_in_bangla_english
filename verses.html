@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +26,7 @@
             <span class="close">&times;</span>
             <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
             <div class="verse-arabic" id="verse-arabic"></div>
+            <div class="verse-pron" id="verse-pron"></div>
             <div class="verse-english" id="verse-english"></div>
             <div class="verse-bengali" id="verse-bengali"></div>
             <div class="verse-number" id="verse-number"></div> 
@@ -45,6 +47,7 @@
             const verseModal = document.getElementById("verseModal");
             const closeModal = document.querySelector(".close");
             const verseArabic = document.getElementById("verse-arabic");
+            const versePron = document.getElementById("verse-pron");
             const verseEnglish = document.getElementById("verse-english");
             const verseBengali = document.getElementById("verse-bengali");
             const chapterTitle = document.getElementById("chapter-title");
@@ -81,10 +84,12 @@
             const displayVerse = (verse) => {
                 Promise.all([
                     fetch(`chapter_${chapter}_arabic.txt`).then(res => res.text()),
+                    fetch(`chapter_${chapter}_pron.txt`).then(res => res.text()),
                     fetch(`chapter_${chapter}_english.txt`).then(res => res.text()),
                     fetch(`chapter_${chapter}_bengali.txt`).then(res => res.text())
-                ]).then(([arabicData, englishData, bengaliData]) => {
+                    ]).then(([arabicData, pronData, englishData, bengaliData]) => {
                     verseArabic.innerHTML = arabicData.split('\n').find(line => line.includes(`Ayaat - ${verse}`)).split(': ')[1];
+                    versePron.innerHTML = pronData.split('\n').find(line => line.includes(`Verse - ${verse}`)).split(': ')[1];
                     verseEnglish.innerHTML = englishData.split('\n').find(line => line.includes(`Verse - ${verse}`)).split(': ')[1];
                     verseBengali.innerHTML = bengaliData.split('\n').find(line => line.includes(`Ayaat - ${verse}`)).split(': ')[1];
                     document.getElementById("verse-number").innerHTML = `Verse ${verse}`;  // Add this line
