@@ -112,9 +112,18 @@ body {
     font-family: 'Traditional Arabic', serif;
 }
 
-.verse-english, .verse-bengali {
+.verse-english, .verse-bengali{
     font-size: 18px;
     margin-bottom: 20px;
+}
+.verse-pron {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 20px;
+    direction: rtl;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    font-style: italic;
 }
 
 .close {
@@ -227,9 +236,6 @@ body {
 #next-verse {
     right: 10px;
 }
-/* Add to styles.css */
-
-/* 1. Verse number at the bottom in small, light font */
 .verse-number {
     font-size: 18px;
     font-weight: lighter;
@@ -253,4 +259,3 @@ button:focus {
     max-height: 90vh;
     overflow-y: auto;
 }
-
