@@ -20,16 +20,18 @@
     </div>
 
     <div id="verseModal" class="modal">
+        
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
             <div class="verse-arabic" id="verse-arabic"></div>
             <div class="verse-english" id="verse-english"></div>
             <div class="verse-bengali" id="verse-bengali"></div>
-
+            <div class="verse-number" id="verse-number"></div> 
             <button id="prev-verse" class="verse-nav prev"><i class="fas fa-arrow-left"></i></button>
             <button id="next-verse" class="verse-nav next"><i class="fas fa-arrow-right"></i></button>
         </div>
+
     </div>
 
     <button id="prev-chapter" class="chapter-nav prev"><i class="fas fa-arrow-left"></i></button>
@@ -85,6 +87,7 @@
                     verseArabic.innerHTML = arabicData.split('\n').find(line => line.includes(`Ayaat - ${verse}`)).split(': ')[1];
                     verseEnglish.innerHTML = englishData.split('\n').find(line => line.includes(`Verse - ${verse}`)).split(': ')[1];
                     verseBengali.innerHTML = bengaliData.split('\n').find(line => line.includes(`Ayaat - ${verse}`)).split(': ')[1];
+                    document.getElementById("verse-number").innerHTML = `Verse ${verse}`;  // Add this line
                     verseModal.style.display = "flex";
                 });
             };
@@ -140,6 +143,7 @@
             goBackButton.addEventListener("click", function () {
                 window.location.href = "index.html"; 
             });
+            
         });
     </script>
 </body>
