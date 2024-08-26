@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f5e6;
@@ -226,3 +227,30 @@ body {
 #next-verse {
     right: 10px;
 }
+/* Add to styles.css */
+
+/* 1. Verse number at the bottom in small, light font */
+.verse-number {
+    font-size: 18px;
+    font-weight: lighter;
+    color: #666;
+    text-align:center;
+    margin-top: 20px;
+}
+
+.chapters-list li, .verses-list li {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+button:focus {
+    outline: none;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
