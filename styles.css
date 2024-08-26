@@ -1,3 +1,8 @@
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    align-items: center;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -258,4 +263,17 @@ button:focus {
 .modal-content {
     max-height: 90vh;
     overflow-y: auto;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+body.locked {
+    position: fixed;
+    width: 100%;
 }
